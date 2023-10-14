@@ -22,7 +22,8 @@ export const login = async (req, res) => {
     res.cookie("token", token, {
       sameSite: "none", // debido a que la cookie no está en el mismo dominio
       secure: true,
-      httpOnly: false
+      httpOnly: false,
+      maxAge: 90000,
     });
 
     // Respuesta
