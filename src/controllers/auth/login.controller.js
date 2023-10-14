@@ -35,6 +35,7 @@ export const login = async (req, res) => {
       trainingPlan: userFound.trainingPlan,
       createAt: userFound.createdAt,
       updatedAt: userFound.updatedAt,
+      token
     });
     
   } catch (err) {
