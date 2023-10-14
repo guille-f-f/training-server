@@ -16,7 +16,7 @@ const server = express();
 server.use(
   cors({
     origin: frontendUrl,
-    credentials: true, // para poder establecer las cookiesñ
+    credentials: true, // para poder establecer las cookies
   })
 );
 server.use(morgan("dev"));
