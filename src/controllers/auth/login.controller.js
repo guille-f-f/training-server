@@ -24,7 +24,6 @@ export const login = async (req, res) => {
       secure: true,
       httpOnly: false,
       maxAge: 90000,
-      domain: "training-three-chi.vercel.app"
     });
 
     // Respuesta
