@@ -6,7 +6,7 @@ const SECRET = process.env.SECRET;
 
 export const verifyToken = async (req, res) => {
   try {
-    const { token } = req.cookies;
+    const { token } = req.body;
     if (!token) return res.status(400).json({ message: "Token undefined." });
 
     jwt.verify(token, SECRET, async (err, decoded) => {

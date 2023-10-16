@@ -4,21 +4,24 @@ import { createAccessToken } from "../../utils/jwt.js";
 
 export const login = async (req, res) => {
   try {
-    // Extraer datos del cuerpo de la solicitud 
+    // Extraer datos del cuerpo de la solicitud
     const { email, password } = req.body;
 
     // Buscar usuario
     const userFound = await logModel.findOne({ email });
     if (!userFound)
       return res.status(400).json({ message: ["Invalid credentials."] });
-      
+
     // Validar password
     const passwordValidate = await bcrypt.compare(password, userFound.password);
     if (!passwordValidate)
       return res.status(400).json({ message: ["Invalid credentials."] });
 
-    // Establecer token en cookies  
-    const token = await createAccessToken({ id: userFound._id, role: userFound.role });
+    // Establecer token en cookies
+    const token = await createAccessToken({
+      id: userFound._id,
+      role: userFound.role,
+    });
     res.cookie("token", token, {
       sameSite: "none", // debido a que la cookie no está en el mismo dominio
       secure: true,
@@ -35,9 +38,8 @@ export const login = async (req, res) => {
       trainingPlan: userFound.trainingPlan,
       createAt: userFound.createdAt,
       updatedAt: userFound.updatedAt,
-      token
+      token,
     });
-    
   } catch (err) {
     res.status(500).json({ message: "err.message" });
   }

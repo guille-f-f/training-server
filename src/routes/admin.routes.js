@@ -15,12 +15,12 @@ import { deletePlan } from "../controllers/admin/deletePlan.controller.js";
 const router = Router();
 
 // User routes
-router.get("/users", auth, getUsers);
-router.get("/user/:id", auth, getUserById);
+router.post("/users", auth, getUsers);
+router.post("/user/:id", auth, getUserById);
 router.put("/user/:id", auth, updateUser);
 
 // Training routes
-router.get("/plans", auth, getAllPlans);
+router.post("/plans", auth, getAllPlans);
 router.get("/plan/:idPlan/training/:idTraining", auth, getTrainingById);
 router.post("/plan", auth, addPlan);
 router.post("/plan/:idPlan", auth, addTrainingToPlan);

@@ -8,7 +8,7 @@ export const updateUser = async (req, res) => {
     if (role === "ADMIN_ROLE") {
       const logFound = await Log.findByIdAndUpdate(
         { _id: req.params.id },
-        { ...req.body },
+        { ...req.body.log },
         { new: true }
       )
       return res.json(logFound);
