@@ -16,6 +16,6 @@ router.get("/logout", logout);
 router.delete("/log/:id", deleteLog);
 
 // Router verify token
-router.get("/auth/verify", verifyToken);
+router.post("/auth/verify", verifyToken);
 
 export default router;
