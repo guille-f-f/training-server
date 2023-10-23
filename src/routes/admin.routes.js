@@ -20,7 +20,7 @@ router.post("/user/:id", auth, getUserById);
 router.put("/user/:id", auth, updateUser);
 
 // Training routes
-router.post("/plans", auth, getAllPlans);
+router.get("/plans", auth, getAllPlans);
 router.get("/plan/:idPlan/training/:idTraining", auth, getTrainingById);
 router.post("/plan", auth, addPlan);
 router.post("/plan/:idPlan", auth, addTrainingToPlan);

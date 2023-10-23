@@ -4,6 +4,6 @@ import { getPlainById } from "../controllers/user/getPlainByLevel.controller.js"
 
 const router = Router();
 
-router.get("/plan/:id", auth, getPlainById);
+router.get("/getPlan/:id", auth, getPlainById);
 
 export default router;
