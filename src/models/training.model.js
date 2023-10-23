@@ -3,12 +3,12 @@ import mongoose from "mongoose";
 const trainingSchema = new mongoose.Schema({
   date: {
     type: String,
-    required: [true, "Date is required."],
+    // required: [true, "Date is required."],
     // unique: true,
   },
   works: {
     type: String,
-    required: [true, "Works is required"],
+    // required: [true, "Works is required"],
   },
   duration: {
     type: String,

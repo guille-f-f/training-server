@@ -5,13 +5,13 @@ const SECRET = process.env.SECRET;
 
 export const auth = async (req, res, next) => {
   try {
-    const { token } = req.body;
-    console.log("BODY AMN: ")
-    console.log(req.body)
-    if (!token) return res.status(401).json({ message: "Token is not valid." });
+    const { authorization } = req.headers;
     
-    jwt.verify(token, SECRET, (err, decoded) => {
-      if (err) return res.status(401).json({ message: "Token is not valid." });
+    if (!authorization) return res.status(401).json({ message: "Token is not valid." });
+    console.log("Authorization: ")
+    console.log(authorization)
+    jwt.verify(authorization, SECRET, (err, decoded) => {
+      if (err) return res.status(401).json({ message: "Token is not posible decoded." });
       req.log = decoded;
       next();
     });

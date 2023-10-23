@@ -4,11 +4,10 @@ export const updateUser = async (req, res) => {
   try {
     const { role } = req.log;
 
-    console.log(req.body)
     if (role === "ADMIN_ROLE") {
       const logFound = await Log.findByIdAndUpdate(
         { _id: req.params.id },
-        { ...req.body.log },
+        { ...req.body },
         { new: true }
       )
       return res.json(logFound);
