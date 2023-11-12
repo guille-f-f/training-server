@@ -11,9 +11,7 @@ export const verifyToken = async (req, res) => {
 
     jwt.verify(token, SECRET, async (err, decoded) => {
       if (err) return res.status(400).json({ message: "Token not authorized" });
-      console.log(decoded)
       const userFound = await logModel.findById(decoded.id);
-      console.log(userFound)
       if (!userFound)
         return res.status(400).json({ message: "Error on the token" });
       res.json({
