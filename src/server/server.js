@@ -8,6 +8,7 @@ import authRoutes from "../routes/auth.routes.js";
 import taskRoutes from "../routes/tasks.routes.js";
 import adminRoutes from "../routes/admin.routes.js";
 import userRoutes from "../routes/user.routes.js";
+import workoutRoutes from "../routes/workout.routes.js"
 
 const frontendUrl = process.env.FRONTEND_URL;
 
@@ -27,5 +28,6 @@ server.use("/api", authRoutes);
 server.use("/api", taskRoutes);
 server.use("/api", adminRoutes);
 server.use("/api", userRoutes);
+server.use("/api", workoutRoutes);
 
 export default server;
