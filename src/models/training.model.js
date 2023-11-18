@@ -47,12 +47,3 @@ trainingPlanSchema.methods.addTraining = async function (training) {
 };
 
 export default mongoose.model("TrainingPlan", trainingPlanSchema);
-
-{
-  title: "tile";
-  exercises: [
-    {exercise: "exercises one"},
-    {exercise: "exercises two"},
-    {exercise: "exercises three"}
-  ] 
-}

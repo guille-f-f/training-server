@@ -26,6 +26,12 @@ const LogSchema = new mongoose.Schema(
       type: mongoose.Types.ObjectId,
       ref: "TrainingPlan",
     },
+    workouts: [
+      {
+        type: mongoose.Types.ObjectId,
+        ref: "Workout",
+      },
+    ],
   },
   {
     timestamps: true,

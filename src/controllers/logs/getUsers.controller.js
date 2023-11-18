@@ -1,6 +1,6 @@
 import logModel from "../../models/log.model.js";
 
-export const getUsers = async (req, res) => {
+export const getUsers = async (_req, res) => {
   try {
     const users = await logModel.find().populate("trainingPlan");
     res.json(users);

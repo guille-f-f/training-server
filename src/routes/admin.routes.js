@@ -15,8 +15,8 @@ import { deletePlan } from "../controllers/admin/deletePlan.controller.js";
 const router = Router();
 
 // User routes
-router.post("/users", auth, getUsers);
-router.post("/user/:id", auth, getUserById);
+router.get("/users", auth, getUsers);
+router.get("/user/:id", auth, getUserById);
 router.put("/user/:id", auth, updateUser);
 
 // Training routes

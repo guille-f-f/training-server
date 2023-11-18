@@ -14,7 +14,7 @@ export const updateUser = async (req, res) => {
     }
     res
       .status(400)
-      .json({ message: "El usuario carece de permisos de administrador." });
+      .json({ message: "The user does not have administrator permissions." });
   } catch (error) {
     console.log(error);
   }
