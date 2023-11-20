@@ -40,6 +40,7 @@ export const login = async (req, res) => {
       email: userFound.email,
       role: userFound.role,
       trainingPlan: userFound.trainingPlan,
+      workouts: userFound.workouts,
       createAt: userFound.createdAt,
       updatedAt: userFound.updatedAt,
       token,
