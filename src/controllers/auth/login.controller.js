@@ -8,7 +8,11 @@ export const login = async (req, res) => {
     const { email, password } = req.body;
 
     // Buscar usuario
-    const userFound = await logModel.findOne({ email });
+    const userFound = await logModel
+      .findOne({ email })
+      .populate("trainingPlan")
+      .populate("workouts");
+
     if (!userFound)
       return res.status(400).json({ message: ["Invalid credentials."] });
 
@@ -28,9 +32,9 @@ export const login = async (req, res) => {
       httpOnly: false,
       maxAge: 90000,
     });
-
-    // Respuesta
+    
     res.json({
+      userFound,
       id: userFound._id,
       username: userFound.username,
       email: userFound.email,

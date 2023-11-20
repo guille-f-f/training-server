@@ -6,6 +6,7 @@ export const getUsers = async (_req, res) => {
       .find()
       .populate("trainingPlan")
       .populate("workouts");
+
     res.json(users);
   } catch (err) {
     res.status(500).json({ message: "Error on the server", error: err });

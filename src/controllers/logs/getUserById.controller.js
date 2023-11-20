@@ -6,7 +6,7 @@ export const getUserById = async (req, res) => {
       .findById(req.params.id)
       .populate("trainingPlan")
       .populate("workouts");
-
+      
     res.json(logFound);
   } catch (err) {
     res.status(500).json({ message: "User not found, error on the server" });
