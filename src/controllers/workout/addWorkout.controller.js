@@ -4,7 +4,6 @@ export const addWorkout = async (req, res) => {
   try {
     const workout = new WorkoutModel({ ...req.body });
     await workout.save();
-
     return res.json({
       message: "Workout saved successfully.",
       plan: workout,
@@ -13,7 +12,6 @@ export const addWorkout = async (req, res) => {
     if (err.code === 11000) {
       return res.status(400).json({ message: "Validation error", errors: err });
     }
-
     res.status(500).json({ message: "Error on the server", error: err.errors });
   }
 };
