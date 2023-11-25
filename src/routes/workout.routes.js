@@ -6,6 +6,7 @@ import { deleteWorkoutById } from "../controllers/workout/deleteWorkoutById.cont
 import { getAllWorkouts } from "../controllers/workout/getAllWorkouts.controller.js";
 import { getWorkout } from "../controllers/workout/getWorkout.controller.js";
 import { updateWorkout } from "../controllers/workout/updateWorkout.controller.js";
+import { getWorkoutById } from "../controllers/workout/getWorkoutById.controller.js";
 
 const router = Router();
 
@@ -16,6 +17,7 @@ router.delete("/delete-workout/:id", auth, deleteWorkoutById);
 router.put("/update-workout/:id", auth, updateWorkout);
 
 // User routes
+router.get("/workout/:idWorkout", getWorkoutById);
 router.get("/workout", getWorkout);
 
 export default router;
