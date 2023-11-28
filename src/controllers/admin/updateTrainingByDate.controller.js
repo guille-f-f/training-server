@@ -3,7 +3,7 @@ import trainingModel from "../../models/training.model.js";
 export const updateTraining = async (req, res) => {
   try {
     const { idPlan, idTraining } = req.params;
-    const { date, works, duration, pace } = req.body;
+    const { day, date, works, duration, pace } = req.body;
 
     const plan = await trainingModel.findById(idPlan);
 
@@ -19,6 +19,7 @@ export const updateTraining = async (req, res) => {
         .json({ message: "Training not found in the plan." });
     }
 
+    if (day) training.day = day;
     if (date) training.date = date;
     if (works) training.works = works;
     if (duration) training.duration = duration;

@@ -1,6 +1,9 @@
 import mongoose from "mongoose";
 
 const trainingSchema = new mongoose.Schema({
+  day: {
+    type: String,
+  },
   date: {
     type: String,
     // required: [true, "Date is required."],
@@ -34,10 +37,8 @@ const trainingPlanSchema = new mongoose.Schema({
 });
 
 trainingPlanSchema.methods.addTraining = async function (training) {
-  const existingTraining = this.trainings.find(
-    (t) => t.date === training.date
-  );
-  
+  const existingTraining = this.trainings.find((t) => t.date === training.date);
+
   if (existingTraining) {
     throw new Error("Date must be unique within the plan.");
   }

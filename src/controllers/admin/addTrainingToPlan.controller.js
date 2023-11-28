@@ -4,12 +4,13 @@ import { sortDates } from "../../utils/sortDate.js";
 export const addTrainingToPlan = async (req, res) => {
   try {
     const { idPlan } = req.params;
-    const { date, works, duration, pace } = req.body;
+    const { day, date, works, duration, pace } = req.body;
     const plan = await trainingModel.findById(idPlan);
     if (!plan) {
       return res.status(404).json({ message: "Plan not found." });
     }
     const newTraining = {
+      day,
       date,
       works,
       duration,
