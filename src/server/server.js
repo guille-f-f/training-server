@@ -11,12 +11,13 @@ import userRoutes from "../routes/user.routes.js";
 import workoutRoutes from "../routes/workout.routes.js"
 
 const frontendUrl = process.env.FRONTEND_URL;
+const codespaceUrl = process.env.CODESPACE_URL;
 
 const server = express();
 
 server.use(
   cors({
-    origin: frontendUrl,
+    origin: [frontendUrl, codespaceUrl],
     credentials: true, // para poder establecer las cookies
   })
 );
