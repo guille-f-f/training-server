@@ -31,9 +31,4 @@ server.use("/api", adminRoutes);
 server.use("/api", userRoutes);
 server.use("/api", workoutRoutes);
 
-server.get("/", (req, res) => {
-  res.send("Bienvenido a nuestro servidor.")
-})
-
-
 export default server;
