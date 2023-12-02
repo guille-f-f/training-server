@@ -11,6 +11,7 @@ import { getAllPlans } from "../controllers/admin/getAllPlans.controller.js";
 import { getTrainingById } from "../controllers/admin/getTrainingById.controller.js";
 import { addTrainingToPlan } from "../controllers/admin/addTrainingToPlan.controller.js";
 import { deletePlan } from "../controllers/admin/deletePlan.controller.js";
+import { updatePlan } from "../controllers/admin/updatePlan.controller.js";
 
 const router = Router();
 
@@ -24,6 +25,7 @@ router.get("/plans", auth, getAllPlans);
 router.get("/plan/:idPlan/training/:idTraining", auth, getTrainingById);
 router.post("/plan", auth, addPlan);
 router.post("/plan/:idPlan", auth, addTrainingToPlan);
+router.put("/plan/:idPlan", auth, updatePlan);
 router.put("/plan/:idPlan/training/:idTraining", auth, updateTraining);
 router.delete(
   "/plan/:idPlan/training/:idTraining",
