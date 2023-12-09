@@ -1,4 +1,5 @@
 import trainingModel from "../../models/training.model.js";
+import { sortDates } from "../../utils/sortDate.js";
 
 export const updateTraining = async (req, res) => {
   try {
@@ -25,6 +26,7 @@ export const updateTraining = async (req, res) => {
     if (duration) training.duration = duration;
     if (pace) training.pace = pace;
 
+    sortDates(plan.trainings);
     await plan.save();
 
     res.json({ message: "Training property updated.", training });
