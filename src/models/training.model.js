@@ -21,6 +21,10 @@ const trainingSchema = new mongoose.Schema({
     type: String,
     default: "undefined",
   },
+  note: {
+    type: String,
+    default: "No hay notas disponibles"
+  },
   createAt: {
     type: Date,
     default: Date.now,
@@ -32,6 +36,12 @@ const trainingPlanSchema = new mongoose.Schema({
     type: String,
     required: [true, "Level date is required."],
     unique: true,
+  },
+  month: {
+    type: String,
+  },
+  week: {
+    type: String,
   },
   trainings: [trainingSchema],
 });

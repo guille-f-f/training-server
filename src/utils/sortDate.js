@@ -7,3 +7,4 @@ export const sortDates = (arrayDates) => {
   });
   return arrayDates;
 };
+

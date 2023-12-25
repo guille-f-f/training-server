@@ -3,7 +3,7 @@ import planModel from "../../models/training.model.js";
 export const addPlan = async (req, res) => {
   try {
     const training = new planModel({ ...req.body });
-
+    console.log(training)
     await training.save();
 
     return res.json({
