@@ -3,7 +3,7 @@ import WorkoutModel from "../../models/workout.model.js";
 export const updateWorkout = async (req, res) => {
   try {
     const { id } = req.params;
-    const { title, exercises } = req.body;
+    const { title, image, repetition, exercises } = req.body;
 
     const workout = await WorkoutModel.findById(id);
 
@@ -12,6 +12,8 @@ export const updateWorkout = async (req, res) => {
     }
 
     if (title) workout.title = title;
+    if (image) workout.image = image;
+    if (repetition) workout.repetition = repetition;
     if (exercises) workout.exercises = exercises;
 
     await workout.save();
