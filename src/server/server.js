@@ -25,6 +25,8 @@ server.use(morgan("dev"));
 server.use(express.json());
 server.use(cookieParser());
 
+server.use("/upload", express.static("src/uploads/")) // ruta para servir documentos alojados en uploads
+
 server.use("/api", authRoutes);
 server.use("/api", taskRoutes);
 server.use("/api", adminRoutes);
