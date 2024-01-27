@@ -24,7 +24,6 @@ const workoutSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  exercises: [exerciseSchema],
 });
 
 export default mongoose.model("Workout", workoutSchema);

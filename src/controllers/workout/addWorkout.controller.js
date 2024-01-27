@@ -1,8 +1,10 @@
 import WorkoutModel from "../../models/workout.model.js";
+import saveImage from "../../utils/renameImage.js"
 
 export const addWorkout = async (req, res) => {
   try {
-    const workout = new WorkoutModel({ ...req.body });
+    saveImage(req.file)  
+    const workout = new WorkoutModel({ ...req.body, image: req.file.originalname });
     await workout.save();
     return res.json({
       message: "Workout saved successfully.",
