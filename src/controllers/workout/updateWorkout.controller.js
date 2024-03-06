@@ -12,11 +12,13 @@ export const updateWorkout = async (req, res) => {
       return res.status(404).json({ message: "Workout not found." });
     }
 
-    saveImage(req.file);
-    deleteFile(workout.image);
+    if (req.file) {
+      deleteFile(workout.image);
+      saveImage(req.file);
+      workout.image = req.file.originalname;
+    }
 
     if (title) workout.title = title;
-    if (req.file) workout.image = req.file.originalname;
     if (repetition) workout.repetition = repetition;
     if (exercises) workout.exercises = exercises;
 
