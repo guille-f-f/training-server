@@ -2,8 +2,6 @@ import WorkoutModel from "../../models/workout.model.js";
 import saveImage from "../../utils/renameImage.js";
 
 export const addWorkout = async (req, res) => {
-  console.log(req.body)
-  
   try {
     saveImage(req.file);
     const workout = new WorkoutModel({
