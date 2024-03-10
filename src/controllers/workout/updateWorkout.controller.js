@@ -5,7 +5,7 @@ import deleteFile from "../../utils/deleteFile.js";
 export const updateWorkout = async (req, res) => {
   try {
     const { id } = req.params;
-    const { title, repetition, exercises } = req.body;
+    const { title, repetition, description, exercises } = req.body;
 
     const workout = await WorkoutModel.findById(id);
     if (!workout) {
@@ -20,6 +20,7 @@ export const updateWorkout = async (req, res) => {
 
     if (title) workout.title = title;
     if (repetition) workout.repetition = repetition;
+    if (description) workout.description = description;
     if (exercises) workout.exercises = exercises;
 
     await workout.save();

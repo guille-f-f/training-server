@@ -9,6 +9,9 @@ const exerciseSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  description: {
+    type: String,
+  },
 });
 
 const workoutSchema = new mongoose.Schema({
@@ -23,6 +26,9 @@ const workoutSchema = new mongoose.Schema({
   repetition: {
     type: String,
     required: true,
+  },
+  description: {
+    type: String,
   },
   exercises: [exerciseSchema],
 });
