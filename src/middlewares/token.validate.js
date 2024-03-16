@@ -9,13 +9,14 @@ export const auth = async (req, res, next) => {
 
     if (!authorization)
       return res.status(401).json({ message: "Token is not valid." });
-    console.log("Authorization: ");
     jwt.verify(authorization, SECRET, (err, decoded) => {
       if (err)
         return res
           .status(401)
           .json({ message: "Token is not posible decoded." });
+
       req.log = decoded;
+
       next();
     });
   } catch (err) {

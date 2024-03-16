@@ -8,17 +8,23 @@ export const register = async (req, res) => {
     const { username, email, password } = req.body;
     
     const userFound = await LogModel.findOne({email});
+
     if(userFound) return res.status(400).json({message: "The user already exists"})
 
     const hasPassword = bcrypt.hashSync(password, 10);
+    
     const newLog = new LogModel({
       username,
       email,
       password: hasPassword,
     });
+    
     await newLog.save();
+    
     const token = await createAccessToken({ id: newLog._id });
+    
     res.cookie("token", token);
+    
     res.json({
       response: "Registration complete",
       id: newLog._id,
@@ -27,6 +33,7 @@ export const register = async (req, res) => {
       createAt: newLog.createdAt,
       updatedAt: newLog.updatedAt,
     });
+    
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
