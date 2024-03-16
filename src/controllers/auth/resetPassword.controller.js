@@ -20,7 +20,7 @@ export const resetPassword = async (req, res) => {
     const hasPassword = bcrypt.hashSync(password, 10);
 
     userFound.password = hasPassword;
-
+  
     await userFound.save();
 
     res.json({ message: "Password update succesfully." });

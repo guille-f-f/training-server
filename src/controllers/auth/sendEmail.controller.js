@@ -14,8 +14,13 @@ export const sendEmail = async (req, res) => {
 
     const token = await createAccessToken({ id: userFound._id });
 
+    const tokenBase64URL = btoa(token)
+      .replace(/\+/g, "-")
+      .replace(/\//g, "_")
+      .replace(/=/g, "");
+
     const subject = "Recupero de contraseña";
-    const url = `${process.env.FRONTEND_URL}/reset-password/${token}`
+    const url = `${process.env.FRONTEND_URL}/reset-password/${tokenBase64URL}`;
     const html = `Para blanquear contraseña siga el siguiente enlace:<a href="${url}/">click aquí</a>`;
 
     sendMailByNodemailer(email, subject, html);
