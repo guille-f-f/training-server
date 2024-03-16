@@ -4,7 +4,7 @@ import "dotenv/config";
 
 export const sendMailByNodemailer = async (to, subject, html) => {
   try {
-    console.log("estamos enviando el mail");
+    
     const config = {
       host: "smtp.gmail.com",
       port: 587,
