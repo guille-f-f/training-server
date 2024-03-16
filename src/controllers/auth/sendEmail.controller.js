@@ -14,7 +14,13 @@ export const sendEmail = async (req, res) => {
 
     const token = await createAccessToken({ id: userFound._id });
 
-    const tokenBase64URL = btoa(token)
+    // const tokenBase64URL = btoa(token)
+    //   .replace(/\+/g, "-")
+    //   .replace(/\//g, "_")
+    //   .replace(/=/g, "");
+
+    const tokenBase64URL = Buffer.from(token)
+      .toString("base64")
       .replace(/\+/g, "-")
       .replace(/\//g, "_")
       .replace(/=/g, "");
