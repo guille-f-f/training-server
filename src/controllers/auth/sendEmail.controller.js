@@ -22,12 +22,65 @@ export const sendEmail = async (req, res) => {
 
     const subject = "Recupero de contraseña";
     const url = `${process.env.FRONTEND_URL}/reset-password/${tokenBase64URL}`;
-    const html = `<div style="margin: 0; padding: 0; box-sizing: border-box; height: 100vh;">
-                    <h1 style="text-align: center; margin: auto; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', Segoe UI Symbol, 'Noto Color Emoji'; font-weight: 800; font-size: 4.75rem; color: #191919;">I-RUNNER</h1>
-                    <a href="${url}" style="display: block; margin: auto; text-decoration: none;">
-                      <button style="display: block; margin: auto;background-color: black; color: white; font-weight: 700; padding: 10px 30px 7px; border: none; box-shadow: 0 0 15px -5px white; cursor: pointer;">BLANQUEAR CONTRASEÑA</button>
-                    </a>
-                  </div>`;
+    const html = 
+    `<!DOCTYPE html>
+      <html lang="en">
+        <head>
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <title>Document</title>
+          <!-- <link rel="stylesheet" href="./style.css" /> -->
+          <style>
+            * {
+              padding: 0;
+              margin: 0;
+              box-sizing: border-box;
+            }
+
+            .bkL .a98, .bkL .IU, .qp .a98, .qp .IU {
+              background: #191919 !important;
+            }
+      
+            #irunner__container {
+              padding-top: 100px;
+              background: #191919;
+              background-position: center;
+              background-size: cover;
+              height: 100vh;
+            }
+      
+            #irunner__container h1 {
+              text-align: center;
+              font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+                Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+                "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol,
+                "Noto Color Emoji";
+              font-weight: 800;
+              font-size: 4.75rem;
+              color: white;
+            }
+      
+            #irunner__container button {
+              display: block;
+              margin: 5px auto;
+              background-color: black;
+              color: white;
+              font-weight: 700;
+              padding: 10px 30px 7px;
+              border: none;
+              box-shadow: 0 0 15px -5px white;
+            }
+          </style>
+        </head>
+        <body>
+          <div id="irunner__container">
+            <h1>I-RUNNER</h1>
+            <a href="${url}">
+              <button>BLANQUEAR CONTRASEÑA</button>
+            </a>
+          </div>
+        </body>
+      </html>`;
 
     sendMailByNodemailer(email, subject, html);
 
