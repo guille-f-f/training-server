@@ -6,7 +6,7 @@ const SECRET = process.env.SECRET;
 
 export const createAccessToken = (payload) => {
   return new Promise((resolve, reject) => {
-    jwt.sign(payload, SECRET, {expiresIn: "1h"}, (err, token) => {
+    jwt.sign(payload, SECRET, (err, token) => {
       if(err) reject(err)
       resolve(token)
     })
