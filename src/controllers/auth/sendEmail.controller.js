@@ -74,6 +74,15 @@ export const sendEmail = async (req, res) => {
               border: none;
               box-shadow: 0 0 15px -5px white;
             }
+
+            #irunner__container button:hover {
+              cursor: pointer;
+              background-color: #e40000;
+            }
+      
+            #irunner__container button:active {
+              scale: 0.98;
+            }
           </style>
         </head>
         <body>
