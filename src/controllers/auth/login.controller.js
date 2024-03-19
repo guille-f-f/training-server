@@ -26,6 +26,7 @@ export const login = async (req, res) => {
       id: userFound._id,
       role: userFound.role,
     });
+    
     res.cookie("token", token, {
       sameSite: "none", // debido a que la cookie no está en el mismo dominio
       secure: true,

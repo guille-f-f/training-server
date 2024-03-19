@@ -59,6 +59,10 @@ export const sendEmail = async (req, res) => {
               font-size: 4.75rem;
               color: white;
             }
+
+            #irunner__container a {
+              text-decoration: none;
+            }
       
             #irunner__container button {
               display: block;
