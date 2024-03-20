@@ -14,12 +14,12 @@ export const login = async (req, res) => {
       .populate("workouts");
 
     if (!userFound)
-      return res.status(400).json({ message: ["Invalid credentials."] });
+      return res.status(400).json({ message: "Invalid credentials." });
 
     // Validar password
     const passwordValidate = await bcrypt.compare(password, userFound.password);
     if (!passwordValidate)
-      return res.status(400).json({ message: ["Invalid credentials."] });
+      return res.status(400).json({ message: "Invalid credentials." });
 
     // Establecer token en cookies
     const token = await createAccessToken({
