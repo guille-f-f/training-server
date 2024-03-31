@@ -9,13 +9,13 @@ export const sendMailByNodemailer = async (to, subject, html) => {
       host: "smtp.gmail.com",
       port: 587,
       auth: {
-        user: "tiendaecommerce381@gmail.com",
+        user: "irunner.adm@gmail.com",
         pass: process.env.NODEMAILER_PASS,
       },
     };
 
     const message = {
-      from: "tiendaecommerce381@gmail.com",
+      from: "irunner.adm@gmail.com",
       to,
       subject,
       html,
