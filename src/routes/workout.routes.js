@@ -16,7 +16,7 @@ const upload = multer({ dest: "src/uploads" });
 
 // Admin routes
 router.get("/workouts", auth, getAllWorkouts);
-router.post("/add-workout", auth, upload.single("workoutImage"), addWorkout);
+router.post("/add-workout", auth, addWorkout);
 router.delete("/delete-workout/:id", auth, deleteWorkoutById);
 router.put("/update-workout/:id", auth, upload.single("workoutImage"), updateWorkout);
 

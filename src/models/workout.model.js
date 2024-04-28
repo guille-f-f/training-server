@@ -19,10 +19,6 @@ const workoutSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  image: {
-    type: String,
-    required: true,
-  },
   repetition: {
     type: String,
     required: true,

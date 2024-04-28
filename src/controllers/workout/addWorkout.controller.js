@@ -3,10 +3,8 @@ import saveImage from "../../utils/renameImage.js";
 
 export const addWorkout = async (req, res) => {
   try {
-    saveImage(req.file);
     const workout = new WorkoutModel({
       ...req.body,
-      image: req.file.originalname,
     });
     await workout.save();
     return res.json({
