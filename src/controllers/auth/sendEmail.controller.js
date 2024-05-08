@@ -29,6 +29,11 @@ export const sendEmail = async (req, res) => {
           <meta charset="UTF-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <title>Document</title>
+
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
           <!-- <link rel="stylesheet" href="./style.css" /> -->
           <style>
             * {
@@ -51,13 +56,13 @@ export const sendEmail = async (req, res) => {
       
             #irunner__container h1 {
               text-align: center;
-              font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-                Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
-                "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol,
-                "Noto Color Emoji";
-              font-weight: 800;
+              font-family: "Montserrat", sans-serif;
+              font-optical-sizing: auto;
+              font-weight: 900;
+              font-style: normal;
               font-size: 4.75rem;
               color: white;
+              letter-spacing: -4px;
             }
 
             #irunner__container a {
