@@ -23,7 +23,7 @@ export const register = async (req, res) => {
     
     const token = await createAccessToken({ id: newLog._id });
     
-    res.cookie("token", token);
+    // res.cookie("token", token);
     
     res.json({
       response: "Registration complete",

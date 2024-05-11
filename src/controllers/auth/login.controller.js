@@ -27,12 +27,12 @@ export const login = async (req, res) => {
       role: userFound.role,
     });
     
-    res.cookie("token", token, {
-      sameSite: "none", // debido a que la cookie no está en el mismo dominio
-      secure: true,
-      httpOnly: false,
-      maxAge: 90000,
-    });
+    // res.cookie("token", token, {
+    //   sameSite: "none", // debido a que la cookie no está en el mismo dominio
+    //   secure: true,
+    //   httpOnly: false,
+    //   maxAge: 10000,
+    // });
     
     res.json({
       userFound,
