@@ -32,5 +32,8 @@ server.use("/api", taskRoutes);
 server.use("/api", adminRoutes);
 server.use("/api", userRoutes);
 server.use("/api", workoutRoutes);
+server.use("/", (req, res) => {
+  res.send("servidor en funcionamiento")
+});
 
 export default server;
