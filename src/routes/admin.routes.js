@@ -12,26 +12,27 @@ import { getTrainingById } from "../controllers/admin/getTrainingById.controller
 import { addTrainingToPlan } from "../controllers/admin/addTrainingToPlan.controller.js";
 import { deletePlan } from "../controllers/admin/deletePlan.controller.js";
 import { updatePlan } from "../controllers/admin/updatePlan.controller.js";
+import { adminValidate } from "../middlewares/admin.validate.js";
 
 const router = Router();
 
 // User routes
-router.get("/users", auth, getUsers);
+router.get("/users", adminValidate, getUsers);
 router.get("/user/:id", auth, getUserById);
-router.put("/user/:id", auth, updateUser);
+router.put("/user/:id", adminValidate, updateUser);
 
 // Training routes
-router.get("/plans", auth, getAllPlans);
+router.get("/plans", adminValidate, getAllPlans);
 router.get("/plan/:idPlan/training/:idTraining", auth, getTrainingById);
-router.post("/plan", auth, addPlan);
-router.post("/plan/:idPlan", auth, addTrainingToPlan);
-router.put("/plan/:idPlan", auth, updatePlan);
-router.put("/plan/:idPlan/training/:idTraining", auth, updateTraining);
+router.post("/plan", adminValidate, addPlan);
+router.post("/plan/:idPlan", adminValidate, addTrainingToPlan);
+router.put("/plan/:idPlan", adminValidate, updatePlan);
+router.put("/plan/:idPlan/training/:idTraining", adminValidate, updateTraining);
 router.delete(
   "/plan/:idPlan/training/:idTraining",
-  auth,
+  adminValidate,
   deleteTrainingFromPlan
 );
-router.delete("/plan/:idPlan", auth, deletePlan);
+router.delete("/plan/:idPlan", adminValidate, deletePlan);
 
 export default router;
