@@ -1,9 +1,10 @@
 import jwt from "jsonwebtoken";
+import logModel from "../models/log.model.js";
 import "dotenv/config";
 
 const SECRET = process.env.SECRET;
 
-export const auth = async (req, res, next) => {
+export const adminValidate = async (req, res, next) => {
   try {
     const { authorization } = req.headers;
 
@@ -18,6 +19,13 @@ export const auth = async (req, res, next) => {
 
       req.log = decoded;
 
+      const userFound = await logModel.findById(decoded.id) 
+      
+      if (userFound.role !== "ADMIN_ROLE") {
+        console.log("invalid login");
+        return res.status(401).json({message: "invalid login"});
+      }
+      
       next();
     });
   } catch (err) {

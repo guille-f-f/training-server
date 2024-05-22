@@ -9,6 +9,7 @@ import { sendEmail } from "../controllers/auth/sendEmail.controller.js";
 import { resetPassword } from "../controllers/auth/resetPassword.controller.js";
 import { deleteLog } from "../controllers/auth/deleteLog.controller.js";
 import { verifyToken } from "../controllers/auth/verifyToken.controller.js";
+import { adminValidate } from "../middlewares/admin.validate.js";
 
 
 const router = Router();
@@ -17,7 +18,7 @@ const router = Router();
 router.post("/register", validateSchema(registerSchema), register);
 router.post("/login", validateSchema(loginSchema), login);
 router.get("/logout", logout);
-router.delete("/log/:id", deleteLog);
+router.delete("/log/:id", adminValidate, deleteLog);
 // Router forgot password
 router.post("/send-email", sendEmail)
 router.post("/reset-password", auth, resetPassword)
