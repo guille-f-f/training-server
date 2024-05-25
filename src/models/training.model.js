@@ -1,17 +1,18 @@
 import mongoose from "mongoose";
 
 const trainingSchema = new mongoose.Schema({
+  visibility: {
+    type: Boolean,
+    default: true,
+  }, 
+  date: {
+    type: String,
+  },
   day: {
     type: String,
   },
-  date: {
-    type: String,
-    // required: [true, "Date is required."],
-    // unique: true,
-  },
   works: {
     type: String,
-    // required: [true, "Works is required"],
   },
   duration: {
     type: String,

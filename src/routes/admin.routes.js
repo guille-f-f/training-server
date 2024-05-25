@@ -13,6 +13,7 @@ import { addTrainingToPlan } from "../controllers/admin/addTrainingToPlan.contro
 import { deletePlan } from "../controllers/admin/deletePlan.controller.js";
 import { updatePlan } from "../controllers/admin/updatePlan.controller.js";
 import { adminValidate } from "../middlewares/admin.validate.js";
+import { updateTrainingVisibility } from "../controllers/admin/updateTrainingVisibility.js";
 
 const router = Router();
 
@@ -28,6 +29,7 @@ router.post("/plan", adminValidate, addPlan);
 router.post("/plan/:idPlan", adminValidate, addTrainingToPlan);
 router.put("/plan/:idPlan", adminValidate, updatePlan);
 router.put("/plan/:idPlan/training/:idTraining", adminValidate, updateTraining);
+router.put("/plan/:idPlan/training-visibility/:idTraining", adminValidate, updateTrainingVisibility);
 router.delete(
   "/plan/:idPlan/training/:idTraining",
   adminValidate,
