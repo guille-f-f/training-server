@@ -26,14 +26,9 @@ export const login = async (req, res) => {
       id: userFound._id,
       role: userFound.role,
     });
-    
-    // res.cookie("token", token, {
-    //   sameSite: "none", // debido a que la cookie no está en el mismo dominio
-    //   secure: true,
-    //   httpOnly: false,
-    //   maxAge: 10000,
-    // });
-    
+
+    userFound.trainingPlan.trainings = userFound.trainingPlan.trainings.filter(training => training.visibility)
+
     res.json({
       userFound,
       id: userFound._id,
@@ -42,11 +37,11 @@ export const login = async (req, res) => {
       role: userFound.role,
       trainingPlan: userFound.trainingPlan,
       workouts: userFound.workouts,
-      createAt: userFound.createdAt,
+      createdAt: userFound.createdAt,
       updatedAt: userFound.updatedAt,
       token,
     });
   } catch (err) {
-    res.status(500).json({ message: "err.message" });
+    res.status(500).json({ message: err.message });
   }
 };

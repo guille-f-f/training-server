@@ -4,7 +4,7 @@ import { sortDates } from "../../utils/sortDate.js";
 export const updateTraining = async (req, res) => {
   try {
     const { idPlan, idTraining } = req.params;
-    const { day, date, works, duration, pace, note } = req.body;
+    const { day, date, works, duration, pace, note, visibility } = req.body;
 
     const plan = await trainingModel.findById(idPlan);
 
@@ -26,6 +26,9 @@ export const updateTraining = async (req, res) => {
     if (duration) training.duration = duration;
     if (pace) training.pace = pace;
     if (note) training.note = note;
+    if (visibility) training.visibility = visibility;
+
+    console.log(plan);
 
     sortDates(plan.trainings);
     await plan.save();
