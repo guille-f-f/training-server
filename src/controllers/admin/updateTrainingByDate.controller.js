@@ -26,9 +26,7 @@ export const updateTraining = async (req, res) => {
     if (duration) training.duration = duration;
     if (pace) training.pace = pace;
     if (note) training.note = note;
-    if (visibility) training.visibility = visibility;
-
-    console.log(plan);
+    if (visibility !== undefined) training.visibility = visibility;
 
     sortDates(plan.trainings);
     await plan.save();
