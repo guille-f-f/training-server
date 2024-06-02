@@ -14,6 +14,7 @@ import { deletePlan } from "../controllers/admin/deletePlan.controller.js";
 import { updatePlan } from "../controllers/admin/updatePlan.controller.js";
 import { adminValidate } from "../middlewares/admin.validate.js";
 import { updateTrainingVisibility } from "../controllers/admin/updateTrainingVisibility.js";
+import { importTrainings } from "../controllers/admin/importTrainings.controller.js";
 
 const router = Router();
 
@@ -35,6 +36,7 @@ router.delete(
   adminValidate,
   deleteTrainingFromPlan
 );
+router.put('/import-trainings/current-plan/:currentPlanId/source-plan/:sourcePlanId', adminValidate, importTrainings)
 router.delete("/plan/:idPlan", adminValidate, deletePlan);
 
 export default router;
