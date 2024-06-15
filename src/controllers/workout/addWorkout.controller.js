@@ -6,6 +6,9 @@ export const addWorkout = async (req, res) => {
     const workout = new WorkoutModel({
       ...req.body,
     });
+
+    console.log(workout);
+    
     await workout.save();
     return res.json({
       message: "Workout saved successfully.",
