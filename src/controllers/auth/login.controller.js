@@ -27,7 +27,9 @@ export const login = async (req, res) => {
       role: userFound.role,
     });
 
-    userFound.trainingPlan.trainings = userFound.trainingPlan.trainings.filter(training => training.visibility)
+    if (userFound.trainingPlan.trainings) {
+      userFound.trainingPlan.trainings = userFound.trainingPlan.trainings.filter(training => training.visibility)
+    }
 
     res.json({
       userFound,
