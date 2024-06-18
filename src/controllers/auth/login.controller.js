@@ -27,8 +27,12 @@ export const login = async (req, res) => {
       role: userFound.role,
     });
 
-    if (userFound.trainingPlan.trainings) {
-      userFound.trainingPlan.trainings = userFound.trainingPlan.trainings.filter(training => training.visibility)
+    // Valida si tiene asignado un plan y en dicho caso filtra entrenamientos visibles
+    if (userFound.hasOwnProperty('trainingPlan')) {
+      userFound.trainingPlan.trainings =
+        userFound.trainingPlan.trainings.filter(
+          (training) => training.visibility
+        );
     }
 
     res.json({
